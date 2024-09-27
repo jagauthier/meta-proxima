@@ -17,7 +17,7 @@ IMAGE_INSTALL += "kernel-modules"
 # Misc utils
 IMAGE_INSTALL += "openssh e2fsprogs e2fsprogs-resize2fs elfutils i2c-tools"
 IMAGE_INSTALL += "util-linux psutils ntp netcat tcpdump"
-IMAGE_INSTALL += "tzdata rt-tests mmc-utils"
+IMAGE_INSTALL += "tzdata rt-tests mmc-utils usbutils"
 
 
 # custom progs
