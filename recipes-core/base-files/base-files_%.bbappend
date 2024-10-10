@@ -7,7 +7,7 @@ SRC_URI += "file://etc/issue \
 
 do_install:append(){
 	install -d ${D}/etc/
-	install -m 0644 ${WORKDIR}/etc/issue ${D}/etc/issue
-	install -m 0644 ${WORKDIR}/etc/motd ${D}/etc/motd
+	install -m 0644 ${UNPACKDIR}/etc/issue ${D}/etc/issue
+	install -m 0644 ${UNPACKDIR}/etc/motd ${D}/etc/motd
 }
  
