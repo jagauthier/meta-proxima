@@ -20,6 +20,7 @@ IMAGE_INSTALL += "util-linux psutils ntp netcat tcpdump"
 IMAGE_INSTALL += "tzdata rt-tests mmc-utils usbutils"
 IMAGE_INSTALL += "ethtool"
 IMAGE_INSTALL += "libgpiod libgpiod-dev libgpiod-tools"
+IMAGE_INSTALL += "dosfstools"
 
 
 # custom progs

@@ -12,7 +12,7 @@ SRC_URI = "file://root/burn_emmc.sh \
           "
 
 do_install(){
-q
+    install -d ${D}/root/
 	install -m 755 ${UNPACKDIR}/root/burn_emmc.sh ${D}/root/burn_emmc.sh
 }
 
