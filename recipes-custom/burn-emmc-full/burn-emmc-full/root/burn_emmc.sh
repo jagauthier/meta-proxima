@@ -76,6 +76,16 @@ umount_emmc()
   
 }
 
+check_boot_device()
+{
+ mount |grep "${EMMC}p2 on / type" > /dev/null
+ if [ $? -eq 0 ]; then
+   echo "You are booted from EMMC.  This should be run when booted from SD card."
+   exit 0
+fi
+}
+
+check_boot_device
 umount_emmc
 create_partitions
 copy_boot_files
