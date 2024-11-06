@@ -13,7 +13,9 @@ DEPENDS = "googletest googlebenchmark protobuf-native protobuf"
 SRC_URI += "git://github.com/cactusdynamics/cactus-rt.git;protocol=https;branch=master"
 SRCREV="${AUTOREV}"
 
-FILES:${PN} = "${datadir} ${libdir} /root" 
+PACKAGES = "${PN}"
+
+FILES:${PN} = "${datadir} ${includedir} ${libdir}"
 
 do_install() {
   
@@ -35,13 +37,6 @@ do_install() {
 	install -m 0644 "${B}"/_deps/readerwriterqueue-src/readerwriterqueue.h "${D}"/usr/include/readerwriterqueue
 	install -m 0644 "${B}"/_deps/readerwriterqueue-src/readerwritercircularbuffer.h "${D}"/usr/include/readerwriterqueue
 	
-	install -m 0644 "${B}"/libcactus_rt.a "${D}"/usr/lib
-	install -m 0644 "${B}"/_deps/quill-build/quill/libquill.a "${D}"/usr/lib
-
-	install -m 0644 "${B}"/libcactus_rt.a "${D}"/root
-	install -m 0644 "${B}"/_deps/quill-build/quill/libquill.a "${D}"/root
-
-	find "${B}"/examples -type f -executable -exec cp {} "${D}"/usr/share/cactus_rt/examples \;
-	
+	# find "${B}"/examples -type f -executable -exec cp {} "${D}"/usr/share/cactus_rt/examples \;
 
 }
