@@ -5,7 +5,8 @@ S = "${WORKDIR}/git"
 
 inherit cmake
 
-EXTRA_OECMAKE += "-DFETCHCONTENT_FULLY_DISCONNECTED=FALSE -DBUILD_TESTING=OFF -DENABLE_EXAMPLES=ON -DBUILD_DOCS=OFF -DENABLE_TRACING=ON -DCMAKE_BUILD_TYPE=Release" 
+EXTRA_OECMAKE += "-DFETCHCONTENT_FULLY_DISCONNECTED=FALSE -DBUILD_TESTING=OFF -DENABLE_EXAMPLES=ON -DBUILD_DOCS=OFF -DENABLE_TRACING=OFF -DCMAKE_BUILD_TYPE=Release" 
+
 
 # Add protobuf-native and protobuf as dependencies
 DEPENDS = "googletest googlebenchmark protobuf-native protobuf"
@@ -13,9 +14,20 @@ DEPENDS = "googletest googlebenchmark protobuf-native protobuf"
 SRC_URI += "git://github.com/cactusdynamics/cactus-rt.git;protocol=https;branch=master"
 SRCREV="${AUTOREV}"
 
-PACKAGES = "${PN}"
+PACKAGES = "${PN} ${PN}-dev ${PN}-dbg ${PN}-staticdev"
+FILES = ""
 
-FILES:${PN} = "${datadir} ${includedir} ${libdir}"
+FILES:${PN} = "${datadir} ${libdir}"
+
+FILES:${PN}-dev = "${includedir}"
+FILES:${PN}-staticdev = "${libdir}/*.a"
+
+ERROR_QA:remove = "staticdev"
+
+RDEPENDS_${PN}-staticdev = ""
+RDEPENDS_${PN}-dev = ""
+RDEPENDS_${PN}-dbg = ""
+
 
 do_install() {
   
@@ -37,6 +49,10 @@ do_install() {
 	install -m 0644 "${B}"/_deps/readerwriterqueue-src/readerwriterqueue.h "${D}"/usr/include/readerwriterqueue
 	install -m 0644 "${B}"/_deps/readerwriterqueue-src/readerwritercircularbuffer.h "${D}"/usr/include/readerwriterqueue
 	
-	# find "${B}"/examples -type f -executable -exec cp {} "${D}"/usr/share/cactus_rt/examples \;
+    install -m 0644 "${B}"/libcactus_rt.a ${D}${libdir}
+    install -m 0644 "${B}"/_deps/quill-build/quill/libquill.a ${D}${libdir}
+	
+	
+	find "${B}"/examples -type f -executable -exec cp {} "${D}"/usr/share/cactus_rt/examples \;
 
 }

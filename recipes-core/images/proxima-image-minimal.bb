@@ -21,7 +21,7 @@ IMAGE_INSTALL += "tzdata rt-tests mmc-utils usbutils"
 IMAGE_INSTALL += "ethtool"
 IMAGE_INSTALL += "libgpiod libgpiod-dev libgpiod-tools"
 IMAGE_INSTALL += "dosfstools rsync opkg emacs"
-IMAGE_INSTALL += "cactus-rt nuttcp hdparm"
+IMAGE_INSTALL += "nuttcp hdparm"
 
 
 # custom progs
