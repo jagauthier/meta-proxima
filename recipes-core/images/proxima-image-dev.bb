@@ -1,3 +1,5 @@
+SUMMARY = "All dev tools for local building"
+
 require proxima-image-minimal.bb
 
 DESCRIPTION = "A small image just capable of allowing a device to boot and \

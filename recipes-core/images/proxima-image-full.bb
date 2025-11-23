@@ -1,3 +1,5 @@
+SUMMARY = "All dev tools, python, docker"
+
 require proxima-image-dev-full.bb
 
 DESCRIPTION = "An image with a full suite of development tools"

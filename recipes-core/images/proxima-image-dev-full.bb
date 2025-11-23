@@ -1,3 +1,5 @@
+SUMMARY = "All dev tools for local building including python and python modules."
+
 require proxima-image-dev.bb
 
 DESCRIPTION = "An image with a full suite of development tools"
