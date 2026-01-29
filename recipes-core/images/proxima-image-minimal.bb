@@ -9,10 +9,11 @@ LICENSE = "MIT"
 inherit core-image
 
 
+
 DEFAULT_TIMEZONE = "America/New_York"
 
-IMAGE_INSTALL += "kernel-modules"
-
+IMAGE_INSTALL += "ti-img-rogue-driver libgbm ti-img-rogue-umlibs mesa-megadriver libegl-mesa libgles2-mesa kernel-modules"
+#IMAGE_INSTALL += "kernel-modules"
 
 # Misc utils
 IMAGE_INSTALL += "openssh e2fsprogs e2fsprogs-resize2fs elfutils i2c-tools"
@@ -29,3 +30,7 @@ IMAGE_INSTALL += "burn-emmc-full"
 
 IMAGE_ROOTFS_SIZE ?= "8192"
 IMAGE_ROOTFS_EXTRA_SPACE:append = "${@bb.utils.contains("DISTRO_FEATURES", "systemd", " + 4096", "", d)}"
+
+
+# Enable GPU support
+MACHINE_FEATURES += "gpu"
