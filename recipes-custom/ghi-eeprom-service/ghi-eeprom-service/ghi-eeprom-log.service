@@ -1,0 +1,11 @@
+[Unit]
+Description=Log EEPROM data at boot
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c '/usr/bin/ghi_eeprom -L "$(date)"'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

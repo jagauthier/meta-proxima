@@ -17,6 +17,7 @@ setup_boot(){
   # Turn off RO mode
   echo 0 > /sys/block/${BOOT_PART}/force_ro
 
+  # This is a 4M partition used just for boot files
   dd if=${BOOT_FILES}/tiboot3.bin of=/dev/${BOOT_PART} bs=512 seek=0
   dd if=${BOOT_FILES}/tispl.bin of=/dev/${BOOT_PART} bs=512 seek=1024
   dd if=${BOOT_FILES}/u-boot.img  of=/dev/${BOOT_PART} bs=512 seek=5120
@@ -25,9 +26,7 @@ setup_boot(){
 
 
 create_partitions(){
-   # Avoid the first 100M, because mmcblk0boot0 is there
-   # will all the important boot files
-   BOOT_ROM_SIZE=100
+   BOOT_ROM_SIZE=1
    # this is on /boot
    BOOT_PART_SIZE=128
 
