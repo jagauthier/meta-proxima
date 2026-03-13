@@ -14,7 +14,7 @@ SRC_URI = "file://${THISDIR}/binary/jed-0.99-19.tar.gz"
 
 PV = "0.99-19"
 
-S = "${WORKDIR}/jed-${PV}"
+S = "${UNPACKDIR}/jed-${PV}"
 
 DEPENDS = "slang ncurses"
 RDEPENDS:${PN} = "slang (>= 2.3.3) ncurses-libtinfo"

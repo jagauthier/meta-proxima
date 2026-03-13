@@ -10,8 +10,6 @@ SRCREV = "${AUTOREV}"
 
 PV = "1.0+git${SRCPV}"
 
-S = "${WORKDIR}/git"
-
 inherit pkgconfig
 
 EXTRA_OEMAKE = "CC='${CC}' CFLAGS='${CFLAGS}' LDFLAGS='${LDFLAGS}' PREFIX=${prefix} DESTDIR=${D}"

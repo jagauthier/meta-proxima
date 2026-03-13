@@ -1,5 +1,5 @@
 SUMMARY = "Recipe to embedded the Python PiP Package fastapi"
-HOMEPAGE ="https://pypi.org/project/fastapi"
+HOMEPAGE = "https://pypi.org/project/fastapi"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=95792ff3fe8e11aa49ceb247e66e4810"
 

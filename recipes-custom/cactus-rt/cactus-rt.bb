@@ -1,8 +1,6 @@
 LICENSE = "MPL-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=815ca599c9df247a0c7f619bab123dad"
 
-S = "${WORKDIR}/git"
-
 inherit cmake
 
 EXTRA_OECMAKE += "-DFETCHCONTENT_FULLY_DISCONNECTED=FALSE -DBUILD_TESTING=OFF -DENABLE_EXAMPLES=ON -DBUILD_DOCS=OFF -DENABLE_TRACING=OFF -DCMAKE_BUILD_TYPE=Release" 
@@ -12,7 +10,7 @@ EXTRA_OECMAKE += "-DFETCHCONTENT_FULLY_DISCONNECTED=FALSE -DBUILD_TESTING=OFF -D
 DEPENDS = "googletest googlebenchmark protobuf-native protobuf"
 # Fetch source code from a Git repository
 SRC_URI += "git://github.com/cactusdynamics/cactus-rt.git;protocol=https;branch=master"
-SRCREV="${AUTOREV}"
+SRCREV = "${AUTOREV}"
 
 PACKAGES = "${PN} ${PN}-dev ${PN}-dbg ${PN}-staticdev"
 FILES = ""
